@@ -1,103 +1,207 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import BackgroundWrapper from "./components/BackgroundWrapper";
+
+const facts = [
+  {
+    title: "DUSTING AROUND THE HOUSE",
+    description:
+      "Use a dryer sheet to remove dust from surfaces such as window blinds and computer screens.",
+    image: "/images/fact-1.png",
+  },
+  {
+    title: "FRESHEN UP YOUR DRAWERS",
+    description:
+      "Slip an unused dryer sheet in a sock, lingerie, or other dresser drawer for a light, fresh scent. Your clothes will always smell fresh from the dryer.",
+    image: "/images/fact-2.png",
+  },
+  {
+    title: "THE BEST-KEPT TRAVEL SECRET",
+    description:
+      "Keep a dryer sheet in your suitcase or carry-on bag between trips so your luggage always smells fresh.",
+    image: "/images/fact-3.png",
+  },
+  {
+    title: "FRESHEN ANY AND EVERYTHING",
+    description:
+      "Your imagination is the limit when it comes to bringing Downy freshness outside of the laundry room...",
+    image: "/images/fact-4.png",
+  },
+  {
+    title: "HOW TO USE DOWNY BALL",
+    description:
+      "Adding fabric softener to your wash is hassle-free. With the Downy Ball, you’ll no longer worry...",
+    image: "/images/fact-5.png",
+  },
+  {
+    title:
+      "DOWNY RINSE & REFRESH REMOVES ODOR SIGNIFICANTLY BETTER THAN VINEGAR",
+    description:
+      "Based on odor and stain removal vs leading national vinegar brand. 5 cups vinegar = 1/2 cup Downy Rinse",
+    image: "/images/fact-6.png",
+  },
+];
+
+const backgrounds = [
+  "bg-gradient-to-b from-[#030D62] to-[#4C8FBB]",
+  "bg-gradient-to-b from-[#000000] to-[#61CBC7]",
+  "bg-gradient-to-b from-[#00295B] to-[#D47DA8]",
+  "bg-gradient-to-b from-[#081F49] to-[#A688BC]",
+  "bg-gradient-to-b from-[#04163C] to-[#3F886B]",
+  "bg-gradient-to-b from-[#05143C] to-[#E15F2F]",
+];
+
+const titleColors = [
+  "#24B6FF",
+  "#65CAC6",
+  "#D47DA8",
+  "#C1ABD7",
+  "#66C1A2",
+  "#E15F2F",
+];
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+  const [showForm, setShowForm] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  // FORM SCREEN
+  if (showForm) {
+    return (
+      <BackgroundWrapper>
+        <div className="w-full max-w-md aspect-[9/16] rounded-[35px] overflow-hidden shadow-lg bg-white z-10">
+          <iframe
+            src="https://www.pggoodeveryday.com/?iss=https%3A%2F%2Faccount.pggoodeveryday.com%2F"
+            title="PG Good Everyday"
+            className="w-full h-full border-none"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        <button
+          onClick={() => {
+            setShowForm(false);
+            setFlippedIndex(null);
+          }}
+          className="w-[400px] mx-auto mt-10 bg-white text-[#094A72] font-bold text-sm px-8 py-3 rounded-full shadow-lg flex items-center justify-center gap-2 hover:scale-105 cursor-pointer transition z-10 text-center"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          MORE FACTS
+          <span className="text-xl">→</span>
+        </button>
+      </BackgroundWrapper>
+    );
+  }
+
+  // FLIPPED FACT SCREEN
+  if (flippedIndex !== null) {
+    return (
+      <BackgroundWrapper onClick={() => setFlippedIndex(null)}>
+        <div
+          className="relative bg-white p-[5px] rounded-[40px] w-[400px] z-10"
+          onClick={(e) => e.stopPropagation()}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <div
+            className={`rounded-[35px] p-6 pb-0 text-white flex flex-col items-center justify-between h-full min-h-[460px] ${backgrounds[flippedIndex]}`}
+          >
+            <h2
+              className="text-[35px] leading-tight font-bold text-center uppercase mb-4"
+              style={{ color: titleColors[flippedIndex] }}
+            >
+              {facts[flippedIndex].title}
+            </h2>
+            <p className="text-[25px] leading-snug text-white text-center mb-6">
+              {facts[flippedIndex].description}
+            </p>
+            <Image
+              src={facts[flippedIndex].image}
+              alt="Fact illustration"
+              width={120}
+              height={120}
+              className="mb-[-24px]"
+            />
+          </div>
+        </div>
+
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowForm(true);
+          }}
+          className="w-[400px] mx-auto mt-10 bg-white text-[#094A72] font-bold text-sm px-8 py-3 rounded-full shadow-lg flex items-center justify-center gap-2 hover:scale-105 cursor-pointer transition z-10 text-center"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          KEEP GOING
+          <span className="text-xl">→</span>
+        </button>
+      </BackgroundWrapper>
+    );
+  }
+
+  // MAIN SCREEN
+  return (
+    <BackgroundWrapper>
+      <h1 className="text-2xl font-bold mb-2 bg-white px-4 py-2 text-[#094A72] rounded-xl">
+        FRESHNESS FACTS
+      </h1>
+      <p className="text-lg text-white font-bold mb-4">
+        Pick a card to reveal a clever Downy hack
+      </p>
+
+      <div className="flex flex-col items-center justify-center flex-1 max-h-[calc(100vh-150px)] overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center p-2">
+          {facts.map((_, index) => (
+            <div
+              key={index}
+              className="p-[5px] bg-white rounded-[20px] relative hover:scale-105 transition"
+            >
+              <button
+                onClick={() => setFlippedIndex(index)}
+                className={`w-[278px] h-[clamp(280px,35vh,360px)] ${backgrounds[index]} rounded-[15px] shadow-lg flex flex-col justify-center items-center cursor-pointer`}
+              >
+                {/* FLORES DECORATIVAS */}
+                <Image
+                  src="/images/mini-flower-1.png"
+                  alt="Flower"
+                  width={33}
+                  height={30}
+                  className="absolute top-5 right-10 h-auto"
+                  priority
+                />
+                <Image
+                  src="/images/mini-flower-2.png"
+                  alt="Flower"
+                  width={49}
+                  height={49}
+                  className="absolute bottom-10 left-0 h-auto"
+                  priority
+                />
+                <Image
+                  src="/images/mini-flower-3.png"
+                  alt="Flower"
+                  width={49}
+                  height={64}
+                  className="absolute bottom-0 right-0 h-auto"
+                  priority
+                />
+
+                <Image
+                  src="/images/Downy.png"
+                  alt="Downy Logo"
+                  width={140}
+                  height={77}
+                  priority
+                />
+                <span className="text-3xl leading-10 font-bold uppercase text-white text-center break-words">
+                  Freshness <br />
+                  Fact
+                </span>
+                <span className="text-white font-bold text-7xl leading-tight mt-2 text-white">
+                  {index + 1}
+                </span>
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BackgroundWrapper>
   );
 }
