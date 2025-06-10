@@ -118,6 +118,7 @@ export default function Home() {
               className="w-full"
               width={300}
               height={200}
+              priority
             />
           </div>
         </div>
@@ -164,7 +165,7 @@ export default function Home() {
                   width={33}
                   height={30}
                   className="absolute top-5 right-10 h-auto"
-                  priority
+                  loading="lazy"
                 />
                 <Image
                   src="/images/mini-flower-2.png"
@@ -172,7 +173,7 @@ export default function Home() {
                   width={49}
                   height={49}
                   className="absolute bottom-10 left-0 h-auto"
-                  priority
+                  loading="lazy"
                 />
                 <Image
                   src="/images/mini-flower-3.png"
@@ -180,7 +181,7 @@ export default function Home() {
                   width={49}
                   height={64}
                   className="absolute bottom-0 right-0 h-auto"
-                  priority
+                  loading="lazy"
                 />
 
                 <Image
