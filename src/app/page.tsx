@@ -9,38 +9,38 @@ const facts = [
     title: "DUSTING AROUND THE HOUSE",
     description:
       "Use a dryer sheet to remove dust from surfaces such as window blinds and computer screens.",
-    image: "/images/fact-1.png",
+    image: "/images/fact-1.webp",
   },
   {
     title: "FRESHEN UP YOUR DRAWERS",
     description:
       "Slip an unused dryer sheet in a sock, lingerie, or other dresser drawer for a light, fresh scent. Your clothes will always smell fresh from the dryer.",
-    image: "/images/fact-2.png",
+    image: "/images/fact-2.webp",
   },
   {
     title: "THE BEST-KEPT TRAVEL SECRET",
     description:
       "Keep a dryer sheet in your suitcase or carry-on bag between trips so your luggage always smells fresh.",
-    image: "/images/fact-3.png",
+    image: "/images/fact-3.webp",
   },
   {
     title: "FRESHEN ANY AND EVERYTHING",
     description:
       "Your imagination is the limit when it comes to bringing Downy freshness outside of the laundry room...",
-    image: "/images/fact-4.png",
+    image: "/images/fact-4.webp",
   },
   {
     title: "HOW TO USE DOWNY BALL",
     description:
       "Adding fabric softener to your wash is hassle-free. With the Downy Ball, you’ll no longer worry...",
-    image: "/images/fact-5.png",
+    image: "/images/fact-5.webp",
   },
   {
     title:
       "DOWNY RINSE & REFRESH REMOVES ODOR SIGNIFICANTLY BETTER THAN VINEGAR",
     description:
       "Based on odor and stain removal vs leading national vinegar brand. 5 cups vinegar = 1/2 cup Downy Rinse",
-    image: "/images/fact-6.png",
+    image: "/images/fact-6.webp",
   },
 ];
 
@@ -101,23 +101,23 @@ export default function Home() {
           onClick={(e) => e.stopPropagation()}
         >
           <div
-            className={`rounded-[35px] p-6 pb-0 text-white flex flex-col items-center justify-between h-full min-h-[460px] ${backgrounds[flippedIndex]}`}
+            className={`rounded-[35px] text-white flex flex-col items-center justify-between h-full min-h-[460px] ${backgrounds[flippedIndex]}`}
           >
             <h2
-              className="text-[35px] leading-tight font-bold text-center uppercase mb-4"
+              className="text-[35px] leading-tight font-bold text-center uppercase mb-4 px-6 pt-6"
               style={{ color: titleColors[flippedIndex] }}
             >
               {facts[flippedIndex].title}
             </h2>
-            <p className="text-[25px] leading-snug text-white text-center mb-6">
+            <p className="text-[25px] leading-snug text-white text-center mb-2 px-6">
               {facts[flippedIndex].description}
             </p>
             <Image
               src={facts[flippedIndex].image}
               alt="Fact illustration"
-              width={120}
-              height={120}
-              className="mb-[-24px]"
+              className="w-full"
+              width={300}
+              height={200}
             />
           </div>
         </div>
