@@ -64,33 +64,6 @@ const titleColors = [
 
 export default function Home() {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
-  const [showForm, setShowForm] = useState(false);
-
-  // FORM SCREEN
-  if (showForm) {
-    return (
-      <BackgroundWrapper>
-        <div className="w-full max-w-md aspect-[9/16] rounded-[35px] overflow-hidden shadow-lg bg-white z-10">
-          <iframe
-            src="https://www.pggoodeveryday.com/?iss=https%3A%2F%2Faccount.pggoodeveryday.com%2F"
-            title="PG Good Everyday"
-            className="w-full h-full border-none"
-          />
-        </div>
-
-        <button
-          onClick={() => {
-            setShowForm(false);
-            setFlippedIndex(null);
-          }}
-          className="w-[400px] mx-auto mt-10 bg-white text-[#094A72] font-bold text-sm px-8 py-3 rounded-full shadow-lg flex items-center justify-center gap-2 hover:scale-105 cursor-pointer transition z-10 text-center"
-        >
-          MORE FACTS
-          <span className="text-xl">→</span>
-        </button>
-      </BackgroundWrapper>
-    );
-  }
 
   // FLIPPED FACT SCREEN
   if (flippedIndex !== null) {
@@ -122,17 +95,6 @@ export default function Home() {
             />
           </div>
         </div>
-
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setShowForm(true);
-          }}
-          className="w-[400px] mx-auto mt-10 bg-white text-[#094A72] font-bold text-sm px-8 py-3 rounded-full shadow-lg flex items-center justify-center gap-2 hover:scale-105 cursor-pointer transition z-10 text-center"
-        >
-          KEEP GOING
-          <span className="text-xl">→</span>
-        </button>
       </BackgroundWrapper>
     );
   }
@@ -191,11 +153,11 @@ export default function Home() {
                   height={77}
                   priority
                 />
-                <span className="text-3xl leading-10 font-bold uppercase text-white text-center break-words">
+                <span className="text-3xl leading-10 font-bold uppercase text-center break-words">
                   Freshness <br />
                   Fact
                 </span>
-                <span className="text-white font-bold text-7xl leading-tight mt-2 text-white">
+                <span className=" font-bold text-7xl leading-tight mt-2 text-white">
                   {index + 1}
                 </span>
               </button>
